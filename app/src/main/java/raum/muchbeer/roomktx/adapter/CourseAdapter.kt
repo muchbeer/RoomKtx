@@ -8,10 +8,9 @@ import raum.muchbeer.roomktx.R
 import raum.muchbeer.roomktx.databinding.StudentListItemBinding
 import raum.muchbeer.roomktx.model.Student
 
-class CourseAdapter(private val studentList : List<Student>,
-              private val selectedItem: (Student)->Unit) : RecyclerView.Adapter<CourseAdapter.CourseViewHolder>() {
+class CourseAdapter(  private val selectedItem: (Student)->Unit) : RecyclerView.Adapter<CourseAdapter.CourseViewHolder>() {
 
-
+    private val studentList = ArrayList<Student>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int
     ): CourseAdapter.CourseViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -27,6 +26,11 @@ class CourseAdapter(private val studentList : List<Student>,
 
     override fun getItemCount(): Int {
        return studentList.size
+    }
+
+    fun setStudentList(student: List<Student>) {
+        studentList.clear()
+        studentList.addAll(student)
     }
 
     class CourseViewHolder(val itemViewBinding: StudentListItemBinding) : RecyclerView.ViewHolder(itemViewBinding.root) {

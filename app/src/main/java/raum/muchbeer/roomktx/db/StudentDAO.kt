@@ -11,7 +11,7 @@ interface StudentDAO {
     suspend fun insertStudent(student : Student) : Long
 
     @Update
-    suspend fun updateStudent(student: Student)
+    suspend fun updateStudent(student: Student) : Int
 
     @Delete
     suspend fun deleteStudent(student: Student)

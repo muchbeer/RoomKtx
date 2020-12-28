@@ -7,9 +7,11 @@ class StudentRepository(private val dao: StudentDAO) {
 
     val retrieve =  dao.retrieveStudentData()
 
-    suspend fun insertStudent(student : Student) {  dao.insertStudent(student)   }
+    suspend fun insertStudent(student : Student) : Long {
+        return dao.insertStudent(student)   }
 
-    suspend fun updateStuddentStudent(student : Student) {   dao.updateStudent(student)    }
+    suspend fun updateStuddentStudent(student : Student) : Int {
+        return dao.updateStudent(student)    }
 
     suspend fun deleteStudent(student : Student) {   dao.deleteStudent(student)     }
 

@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
     private lateinit var studentViewModel: StudentViewModel
-
+    private lateinit var adapter : CourseAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,11 +35,19 @@ class MainActivity : AppCompatActivity() {
         binding.studentViewModel = studentViewModel
         binding.lifecycleOwner = this
 
-    setRecyclerView()
+        setRecyclerView()
+
+        studentViewModel.message.observe(this, Observer {
+           it.getContentIfNotHandled()?.let {
+               Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+           }
+        })
     }
 
     private fun setRecyclerView() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        adapter = CourseAdapter( {selectItem:Student->selectedItem(selectItem)})
+        binding.recyclerView.adapter = adapter
         getStudentLiveData()
     }
 
@@ -47,11 +55,11 @@ class MainActivity : AppCompatActivity() {
     private fun getStudentLiveData() {
         studentViewModel.retrieveStudent.observe(this, Observer { listOfStudent->
 
-            binding.recyclerView.adapter = CourseAdapter(listOfStudent,
-                {selectItem:Student->selectedItem(selectItem)})
-        listOfStudent.forEach {
+            adapter.setStudentList(listOfStudent)
+            adapter.notifyDataSetChanged()
+      /*  listOfStudent.forEach {
             Log.d("MainActivity", "The list of student are : ${it.student_name}")
-        }
+        }*/
 
         })
     }
