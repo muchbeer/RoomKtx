@@ -24,9 +24,9 @@ class StudentViewModel(private val repository: StudentRepository) : ViewModel(),
     private var isUpdateorDelete = false
     private lateinit var isStudentUpdateOrDelete : Student
     @Bindable
-    val inputName = MutableLiveData<String>()
+    var inputName = MutableLiveData<String>()
     @Bindable
-    val inputCourse = MutableLiveData<String>()
+    var inputCourse = MutableLiveData<String>()
 
     @Bindable
     val btnSaveUpdate = MutableLiveData<String>()
@@ -48,13 +48,12 @@ class StudentViewModel(private val repository: StudentRepository) : ViewModel(),
     fun saveOrUpdate() {
         //if you want to validate email
        // if(Patterns.EMAIL_ADDRESS.matcher(inputName.value!!).matches())
-        if (inputName.value == null) {
+        if (inputName.value == null ) {
             statusMessage.value = Event("Please enter name of student")
-            inputCourse.value = null
-        } else if (inputCourse.value ==null) {
-            statusMessage.value = Event("Please enter course of student")
-            inputName.value = null
-        } else {
+
+        } else if ( inputCourse.value ==null){
+            statusMessage.value = Event("Please enter name of the course")
+        }  else {
             if(isUpdateorDelete) {
                 isStudentUpdateOrDelete.student_name = inputName.value!!
                 isStudentUpdateOrDelete.student_course = inputCourse.value!!
@@ -63,15 +62,11 @@ class StudentViewModel(private val repository: StudentRepository) : ViewModel(),
             } else {
                 val studentName = inputName.value!!
                 val courseName = inputCourse.value!!
-                if (studentName ==null) {
-                    statusMessage.value = Event("Please enter name of student")
-                } else if(courseName == null) {
-                    statusMessage.value = Event("Please enter course of student")
-                } else {
-                    insertStudent(Student(0, studentName, courseName))
+
+                    insertStudent(Student(0, inputName.value!!, inputCourse.value!!))
                     inputName.value = null
                     inputCourse.value = null
-                }
+
 
             }
         }

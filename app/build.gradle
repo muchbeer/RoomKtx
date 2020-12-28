@@ -72,6 +72,12 @@ dependencies {
 
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
+
+    def retrofit_version = '2.9.0'
+    def logging_interceptor_version='4.9.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
     //annotation processsor
  //   kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 }
