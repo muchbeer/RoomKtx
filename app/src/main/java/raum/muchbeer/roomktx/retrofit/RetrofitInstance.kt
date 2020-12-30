@@ -31,6 +31,7 @@ class RetrofitInstance {
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
                 .build()
+
         }
     }
 }
