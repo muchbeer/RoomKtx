@@ -50,6 +50,7 @@ class AlbumActivity : AppCompatActivity() {
 
     //if you want to share viewModel btn different activity most important Fragment then use
   //  val testHiltView2 : TestHiltViewModel by activityViewModels()
+    //Now we are good to go
 
     companion object {
         const val KEY_WORKER_DATA = "key_count"
