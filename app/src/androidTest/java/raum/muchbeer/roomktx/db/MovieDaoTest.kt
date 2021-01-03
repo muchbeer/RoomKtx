@@ -49,7 +49,21 @@ class MovieDaoTest {
 
     }
 
+    @Test
+   fun test_delete_all_student() = runBlocking {
+       val students = listOf(
+           Student(1, "George", "Comutter"),
+           Student(2, "Evelyn", "Geography"),
+           Student(3, "Mama", "Doctor")
+       )
+       students.forEach {
+           studentDaoTest.insertStudent(it)
+       }
 
+       studentDaoTest.deleteAll()
+     val retrieveStudent=   studentDaoTest.retrieveStudentList()
+       Truth.assertThat(retrieveStudent).isEmpty()
+   }
 
     @After
     fun tearDown() {

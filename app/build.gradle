@@ -38,6 +38,9 @@ android {
         dataBinding true
     }
 
+
+    //This summarize the stubborn error
+    // More than one file was found with OS independent path 'META-INF/ASF'
     packagingOptions {
         exclude "**/attach_hotspot_windows.dll"
         exclude "META-INF/licenses/**"
