@@ -7,7 +7,7 @@ import raum.muchbeer.roomktx.repository.StudentRepository
 import javax.inject.Named
 
 class TestHiltViewModel
-@ViewModelInject
+/*@ViewModelInject
 constructor(
     private val testString : String,
     private val repository : StudentRepository,
@@ -18,5 +18,5 @@ constructor(
         Log.d("TestHiltViewModel", "The retrieve testHilt is : ${testString}")
      //   Log.d("TestHiltViewModel", "The retrieve testHilt is : ${testString}")
      //   Log.d("TestHiltViewModel", "The retrieve testHilt is : ${testString}")
-    }
-}
+    }*/
+//}

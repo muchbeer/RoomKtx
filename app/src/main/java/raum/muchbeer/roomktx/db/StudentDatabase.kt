@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import raum.muchbeer.roomktx.model.Student
 
-@Database(entities = [Student::class], version = 1)
+@Database(entities = [Student::class], version = 1, exportSchema = false)
 abstract class StudentDatabase : RoomDatabase() {
 
     abstract fun studentDao() : StudentDAO

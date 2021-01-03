@@ -21,4 +21,7 @@ interface StudentDAO {
 
     @Query("SELECT * FROM students_table ORDER BY student_name ASC")
     fun retrieveStudentData() : LiveData<List<Student>>
+
+    @Query("SELECT * FROM students_table ")
+    suspend fun retrieveStudentList() : List<Student>
 }

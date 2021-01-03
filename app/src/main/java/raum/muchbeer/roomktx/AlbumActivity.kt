@@ -42,11 +42,11 @@ class AlbumActivity : AppCompatActivity() {
     private val KEY_TEXT = "key_value"
 
     //this below is called field injection and is dope
-    @Inject
-    lateinit var retrieveInjection : String
+  //  @Inject
+  //  lateinit var retrieveInjection : String
 
     //Instatiate viewModel with Hilt
-    val testHiltView : TestHiltViewModel by viewModels()
+ //   val testHiltView : TestHiltViewModel by viewModels()
 
     //if you want to share viewModel btn different activity most important Fragment then use
   //  val testHiltView2 : TestHiltViewModel by activityViewModels()
@@ -59,6 +59,7 @@ class AlbumActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
       //  setContentView(R.layout.activity_album)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_album)
+
 
      getRetrofitService = RetrofitInstance.getRetrofitInstance().create(AlbumService::class.java)
 
@@ -75,7 +76,7 @@ class AlbumActivity : AppCompatActivity() {
         uploadAlbum()
 
         //Inject to an activity
-        Log.d("AlbumActivityHilt", "Inject string provide the name: ${retrieveInjection}")
+      //  Log.d("AlbumActivityHilt", "Inject string provide the name: ${retrieveInjection}")
 
     }
 
