@@ -16,7 +16,7 @@
         android:theme="@style/Theme.RoomKtx">
         <activity android:name=".SecondActivity"></activity>
         <!-- <activity android:name=".AlbumActivity"></activity> -->
-        <activity android:name=".AlbumActivity">
+        <activity android:name=".HiltActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
