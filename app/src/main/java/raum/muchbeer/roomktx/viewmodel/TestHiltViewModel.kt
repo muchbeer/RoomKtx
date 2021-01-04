@@ -19,4 +19,6 @@ constructor(
      //   Log.d("TestHiltViewModel", "The retrieve testHilt is : ${testString}")
      //   Log.d("TestHiltViewModel", "The retrieve testHilt is : ${testString}")
     }*/
+
+    //fun testString() = apiToken
 //}

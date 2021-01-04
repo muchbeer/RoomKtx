@@ -7,6 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import raum.muchbeer.roomktx.BaseApplication
+import javax.inject.Named
 import javax.inject.Singleton
 
 //this is the singleton object that in Kotlin we use Object
@@ -19,10 +20,11 @@ object AppModule {
     fun provideApplication(@ApplicationContext app: Context) : BaseApplication {
         return app as BaseApplication
     }
+
     @Singleton
     @Provides
+    @Named("android_developer")
     fun provideString() : String {
         return "George"
     }
-
 }

@@ -2,12 +2,14 @@ package raum.muchbeer.roomktx
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigator
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Inject
+import javax.inject.Named
 import javax.inject.Singleton
 
 @AndroidEntryPoint
@@ -68,9 +70,9 @@ constructor( private val machibyaFamilyImpl: Machibya) {
 
 class MachibyaFamilyImpl
 @Inject
-constructor() : Machibya {
+constructor(private @Named("wife_key") val wife : String) : Machibya {
     override fun watotoWanne(): String {
-       return "Watoto wa Machibya ni Jose, John, George, Evelyn"
+       return "His wife is ${wife} and the Watoto wa Machibya ni Jose, John, George, Evelyn"
     }
 
 }
@@ -82,15 +84,6 @@ interface Machibya {
 //to implement MachibyaFamilyImpl
 //so let us do it
 
-@Module
-@InstallIn(ApplicationComponent::class)
-class MachibyModule {
 
-    @Provides
-    @Singleton
-    fun machibyaFamilyImpl() : Machibya {
-        return MachibyaFamilyImpl()
-        //we don't have a constructor in MachibyaFamilyImpl() that is why we don't instatiate
-    }
-}
+
 
